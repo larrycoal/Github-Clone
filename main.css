@@ -161,3 +161,141 @@ li a{
     padding: 15px 0px;
     border-bottom: 2px solid whitesmoke;
 }
+
+
+/*=====================================
+--------Tabs Wrapper
+=======================================*/
+.tabs_wrapper{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid whitesmoke;
+    justify-content: center;
+}
+.tabs_wrapper section a{
+    font-size: large;
+    padding: 20px;
+    height: 50px;
+}
+.tabs_wrapper section a svg{
+margin-right: 5px;
+}
+.tabs_wrapper section a:nth-child(2){
+    border-bottom: 2px solid rgb(221, 135, 135) !important;
+    font-weight: bold;
+}
+.tabs_wrapper section a:hover{
+    border-bottom: 2px solid rgb(238, 197, 197);
+}
+/*=====================================
+--------Main container
+=======================================*/
+.main_container{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 85vw;
+    margin: 0 auto;
+}
+.profile_wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.profile_wrapper .container{
+    position: absolute;
+    top: 100px;
+}
+.profile_avatar{
+    background-color: black;
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+}
+.profile_avatar section{
+    position: absolute;
+    top: 190px;
+    left: 280px;
+    background-color: white;
+    border: 1px solid whitesmoke;
+    border-radius: 30px;
+    padding: 8px;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+.profile_avatar section img{
+    align-self: center;
+    height: 17px;
+}
+.profile_avatar section a{
+    align-self: center;
+    margin-left: 5px;
+    display: none;
+}
+.profile_avatar section:hover a{
+    display: inline;
+    color: rgb(114, 114, 230);
+}
+.profile_details{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    border-bottom: 2px solid whitesmoke;
+}
+.profile_details h2{
+    margin-bottom: 0;
+}
+.profile_details button{
+    padding: 5px;
+    border: 1px solid rgb(201, 189, 189);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.profile_details span{
+    margin-bottom: 5px;
+}
+.profile_others p{
+    border-bottom: 2px solid whitesmoke;
+    padding-bottom: 15px;
+}
+.repository_wrapper .search_wrapper{
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+    border-bottom: 2px solid whitesmoke;
+}
+.repository_wrapper .search_wrapper section:nth-child(1){
+flex-grow: 1;
+}
+.repository_wrapper .search_wrapper section:nth-child(2){
+    display: flex;
+    align-self: center;
+}
+.repository_wrapper .search_wrapper section:nth-child(1) input{
+    width: 90%;
+    padding: 8px;
+    border: 1px solid rgb(175, 165, 165);
+    border-radius: 5px;
+}
+.repository_wrapper .search_wrapper section:nth-child(2) div{
+    padding: 5px 10px;
+    background: #FAFBFC;
+    border: 1px solid rgb(170, 165, 165);
+    margin: 0px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.repository_wrapper .search_wrapper section:nth-child(2) div:hover{
+    background: #caccce;
+}
+.repository_wrapper .search_wrapper section:nth-child(2) div:nth-child(3){
+    background-color: #2ea44f;
+    color: white;
+}
+.repository_wrapper .search_wrapper section:nth-child(2) div i{
+    color: black;
+}
+
