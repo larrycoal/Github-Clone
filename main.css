@@ -35,6 +35,18 @@ li a{
 .repo_dropdown,.profile_dropdown{
     cursor: pointer;
 }
+.fixed{
+    z-index: 50;
+    position: fixed;
+    top: 0;
+    background-color: white;
+}
+#pop_avatar{
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: red;
+    background-size: contain;
+}
 /*=====================================
 --------Nav Bar
 =======================================*/
@@ -90,7 +102,7 @@ li a{
     border-radius: 20px;
     background-color: whitesmoke;
     margin: 2px;
-    
+    background-size: contain;
 }
 .right_nav div:nth-child(3){
     display: flex;
@@ -168,10 +180,20 @@ li a{
 =======================================*/
 .tabs_wrapper{
     padding: 20px;
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
     border-bottom: 2px solid whitesmoke;
     justify-content: center;
+    width: 100%;
+}
+.tabs_wrapper section:nth-child(1){
+    align-self: center;
+    justify-self: center;
+    visibility: hidden;
+}
+.tabs_wrapper section:nth-child(1) span:nth-child(2){
+    margin: 0px 10px;
+    font-weight: bolder;
 }
 .tabs_wrapper section a{
     font-size: large;
@@ -207,6 +229,7 @@ margin-right: 5px;
 }
 .profile_avatar{
     background-color: black;
+    background-size: contain;
     border-radius: 50%;
     height: 300px;
     width: 300px;
@@ -261,6 +284,9 @@ margin-right: 5px;
     border-bottom: 2px solid whitesmoke;
     padding-bottom: 15px;
 }
+/*=====================================
+--------Repository wrapper
+=======================================*/
 .repository_wrapper .search_wrapper{
     display: flex;
     flex-direction: row;
@@ -298,4 +324,27 @@ flex-grow: 1;
 .repository_wrapper .search_wrapper section:nth-child(2) div i{
     color: black;
 }
-
+.repository_wrapper .repository .content{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border-bottom: 2px solid whitesmoke;
+    padding-bottom: 20px;
+}
+.repository_wrapper .repository .content section{
+    padding: 10px 20px;
+}
+.repository_wrapper .repository .content section:nth-child(1){
+    flex-grow: 1;
+}
+.repository_wrapper .repository .content section:nth-child(2) span{
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    padding: 5px 20px;
+}
+.repository_wrapper .repository .content section span{
+    margin: 0px 10px;
+}
+.repository_wrapper .repository .content section h2{
+    color: blueviolet;
+}
