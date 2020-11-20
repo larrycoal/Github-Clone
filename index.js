@@ -6,6 +6,7 @@ var plusIcon = document.getElementsByClassName("repo_dropdown")[0];
 var body = document.querySelector("body");
 var profileAvatar = document.getElementsByClassName("profile_avatar")[0];
 var navAvatar = document.getElementsByClassName("nav_avatar")[0];
+var navAvatar2 = document.getElementsByClassName("nav_avatar2")[0];
 var repository = document.getElementsByClassName("repository")[0];
 var hamburger = document.getElementsByClassName("hamburger")[0]
 var fullName=document.getElementById("full_name")
@@ -94,6 +95,7 @@ Helper Functions
 const getRepositories = ({ user }) => {
   profileAvatar.style.backgroundImage = `url(${user.avatarUrl})`;
   navAvatar.style.backgroundImage = `url(${user.avatarUrl})`;
+  navAvatar2.style.backgroundImage = `url(${user.avatarUrl})`;
   document.getElementById("pop_avatar").style.backgroundImage = `url(${user.avatarUrl})`;
   fullName.innerHTML=user.name
   email.innerHTML=user.email
