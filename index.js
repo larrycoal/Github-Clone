@@ -49,12 +49,9 @@ const query = `{
           }
         }
       }}`;
-fetch("https:api.github.com/graphql",{
+fetch("https://api.github.com/graphql",{
   method: "POST",
-  mode:"cors",
   headers: oauth,
-  cache:"no-cache",
-  referrer:"no-referrer",
   body: JSON.stringify({ query: query }),
 })
   .then((res) => {
