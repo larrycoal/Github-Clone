@@ -1,350 +1,571 @@
-html,body{
-    height: 100vh;
-    width:100vw;
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  margin: 0px;
+  font-family: "Open Sans", sans-serif;
+}
+i {
+  color: white;
+}
+ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+li {
+  padding: 7px 5px;
+  list-style: none;
+}
+li:hover {
+  background-color: rgb(46, 54, 179);
+}
+a {
+  text-decoration: none;
+  color: darkslategrey;
+}
+li:hover a {
+  color: white;
+}
+li a {
+  margin: 0px 10px;
+}
+.display_dialog {
+  display: inline;
+}
+.repo_dropdown,
+.profile_dropdown {
+  cursor: pointer;
+}
+.fixed {
+  z-index: 50;
+  position: fixed;
+  top: 0;
+  background-color: white;
+}
+#pop_avatar {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: red;
+  background-size: contain;
+}
+#repo_count {
+  font-size: 12px;
+  margin: 0px 10px;
+  padding: 0px 5px;
+  background-color: rgb(206, 194, 194);
+  border-radius: 20px;
+}
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+.hamburger span{
+    padding: 2px;
+    width: 30px;
     background-color: white;
-    margin:0px
+    border-radius: 3px;
+    margin: 7px 0px;
+    display: flex;
 }
-i{
-    color: white;
+.m-bell, .profile_m{
+    display: none;
 }
-ul{
-    list-style: none;
-    margin: 0 auto;
-    padding: 0;
+.visible{
+    display: flex !important;
 }
-li{
-    padding: 7px 5px;
-    list-style: none;
-}
-li:hover{
-    background-color: rgb(46, 54, 179);
-}
-a{
-    text-decoration: none;
-    color: darkslategrey;
-}
-li:hover a{
-    color: white;
-}
-li a{
-    margin: 0px 10px;
-}
-.display_dialog{
-    display: inline;
-}
-.repo_dropdown,.profile_dropdown{
-    cursor: pointer;
-}
-.fixed{
-    z-index: 50;
-    position: fixed;
-    top: 0;
-    background-color: white;
-}
-#pop_avatar{
-    padding: 10px 20px;
-    border-radius: 20px;
-    background-color: red;
-    background-size: contain;
+#j_m{
+    display: none;
 }
 /*=====================================
 --------Nav Bar
 =======================================*/
-.header_wrapper{
-    background-color: #24292E;
-    padding: 16px 32px;
-    display: flex;
-    flex-direction: row;
+.header_wrapper {
+  background-color: #24292e;
+  padding: 14px 30px;
+  display: flex;
+  flex-direction: row;
+  font-size: 23px;
 }
-.header_wrapper .left_nav{
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    align-items: center;
+ .left_nav {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  align-items: center;
+  font-size: 0.6em;
+  font-weight: 600;
 }
-.left_nav{
-    padding: 0px 15px;
+.left_nav {
+  padding: 0em 0.5em;
 }
-.left_nav a{
-    color: white;
-    text-decoration: none;
-    margin-left:30px ;
+.left_nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1em;
 }
-.left_nav input{
-    background-color: transparent;
-    border: 1px solid #3b4147;
-    border-radius: 5px;
-    width: 200px;
-    height: 25px;
-    padding: 0px 12px;
-    outline: none;
-    transition: all ease .5s;
+.left_nav input {
+  background-color: transparent;
+  border: 1px solid #3b4147;
+  border-radius: 0.3em;
+  width: 17em;
+  height: 2em;
+  padding: 0px 0.4em;
+  outline: none;
+  transition: all ease 0.5s;
 }
-.github_logo i{
-    font-size: xx-large;
+.github_logo {
+  font-size: 1.5em !important;
 }
-.search_input{
-    width: 400px !important;
-    background-color: white !important;
-
+.search_input {
+  width: 24em !important;
+  background-color: white !important;
 }
-.header_wrapper .right_nav{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.header_wrapper .right_nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 0.7em;
 }
-.header_wrapper .right_nav div{
-    margin-left: 15px;
+.header_wrapper .right_nav div {
+  margin: 0em 0.7em;
 }
-.nav_avatar{
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    background-color: whitesmoke;
-    margin: 2px;
-    background-size: contain;
+.nav_avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: whitesmoke;
+  margin: 2px;
+  background-size: contain;
 }
-.right_nav div:nth-child(3){
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.right_nav div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 /*=====================================
 --------Drop down dialog
 =======================================*/
-.add_dialog{
-    margin: 0;
-    width: fit-content;
-    position: fixed;
-    top: 50px;
-    right: 80px;
-    display: none;
+.add_dialog {
+  margin: 0;
+  width: fit-content;
+  position: fixed;
+  top: 48px;
+  right: 90px;
+  display: none;
+  font-size: 0.6em;
+  font-weight: 600;
 }
-.add_dialog div:nth-child(1){
-    width: fit-content;
-    position: fixed;
-    top: 30px;
-    right: 90px;
-    z-index: -10;
+.add_dialog div:nth-child(1) {
+  width: fit-content;
+  position: fixed;
+  top: 30px;
+  right: 100px;
+  z-index: -10;
 }
-.add_dialog div:nth-child(2){
-    background-color: white;
-    border: 1px solid whitesmoke;
-    border-radius: 10px;
-    width: 170px;
-    z-index: 10;
-    padding: 5px 0px;
+.add_dialog div:nth-child(2) {
+  background-color: white;
+  border: 1px solid whitesmoke;
+  border-radius: 10px;
+  width: 170px;
+  z-index: 10;
+  padding: 5px 0px;
 }
-.profile_dialog{
-    margin: 0;
-    width: fit-content;
-   display: none;
+.profile_dialog {
+  margin: 0;
+  width: fit-content;
+  display: none;
+  font-size: 0.6em;
+  font-weight: 600;
 }
-.profile_dialog div:nth-child(1){
-    position: fixed;
-    top: 30px;
-    right: 45px;
-    z-index: 1;
+.profile_dialog div:nth-child(1) {
+  position: absolute;
+  top: 32px;
+  right: 50px;
+  z-index: 1;
 }
-.profile_dialog div:nth-child(2){
-    border: 1px solid whitesmoke;
-    border-radius: 10px;
-    background-color: white;
-    position: fixed;
-    top: 50px;
-    right: 30px;
-    z-index: 2;
+.profile_dialog div:nth-child(2) {
+  border: 1px solid whitesmoke;
+  border-radius: 10px;
+  background-color: white;
+  position: absolute;
+  top: 50px;
+  right: 40px;
+  z-index: 2;
 }
-.profile_dialog div:nth-child(2) section:nth-child(1){
-    padding: 10px 15px;
-    border-bottom: 2px solid whitesmoke;
+.profile_dialog div:nth-child(2) section:nth-child(1) {
+  padding: 10px 15px;
+  border-bottom: 2px solid whitesmoke;
 }
-.profile_dialog div:nth-child(2) section:nth-child(2){
-    padding: 15px 0px;
-    border-bottom: 2px solid whitesmoke;
+.profile_dialog div:nth-child(2) section:nth-child(2) {
+  padding: 15px 0px;
+  border-bottom: 2px solid whitesmoke;
 }
-.profile_dialog div:nth-child(2) section:nth-child(2) a{
-    padding: 5px 35px;
-    border: 1px solid whitesmoke;
-    border-radius: 5px;
-    margin-left: 15px;
+.profile_dialog div:nth-child(2) section:nth-child(2) a {
+  padding: 5px 35px;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  margin-left: 15px;
 }
-.profile_dialog div:nth-child(2) section:nth-child(3){
-    padding: 15px 0px;
-    border-bottom: 2px solid whitesmoke;
+.profile_dialog div:nth-child(2) section:nth-child(3) {
+  padding: 15px 0px;
+  border-bottom: 2px solid whitesmoke;
 }
-
 
 /*=====================================
 --------Tabs Wrapper
 =======================================*/
-.tabs_wrapper{
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    border-bottom: 2px solid whitesmoke;
-    justify-content: center;
-    width: 100%;
+.tabs_wrapper {
+  padding: .8em 0;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  border-bottom: 2px solid whitesmoke;
+  justify-content: center;
+  width: 100%;
+  font-size: 20px;
+  grid-area: tabs;
 }
-.tabs_wrapper section:nth-child(1){
-    align-self: center;
-    justify-self: center;
-    visibility: hidden;
+.tabs_wrapper section:nth-child(1) {
+  align-self: center;
+  justify-self: center;
+  visibility: hidden;
+  font-size: 0.7em;
 }
-.tabs_wrapper section:nth-child(1) span:nth-child(2){
-    margin: 0px 10px;
-    font-weight: bolder;
+.tabs_wrapper section:nth-child(1) span:nth-child(2) {
+  margin: 0px 10px;
+  font-weight: 600;
 }
-.tabs_wrapper section a{
-    font-size: large;
-    padding: 20px;
-    height: 50px;
+.tabs_wrapper section:nth-child(2) {
+  font-size: 0.8em;
+  margin: 0px 20px;
 }
-.tabs_wrapper section a svg{
-margin-right: 5px;
+.tabs_wrapper section span {
+  padding: .8em;
+  height: 40px;
 }
-.tabs_wrapper section a:nth-child(2){
-    border-bottom: 2px solid rgb(221, 135, 135) !important;
-    font-weight: bold;
+.tabs_wrapper section:nth-child(2) span svg {
+  margin-right: 5px;
 }
-.tabs_wrapper section a:hover{
-    border-bottom: 2px solid rgb(238, 197, 197);
+.tabs_wrapper section:nth-child(2) span:nth-child(2) {
+  border-bottom: 2px solid rgb(221, 135, 135) !important;
+  font-weight: bold;
+}
+.tabs_wrapper section span:hover {
+  border-bottom: 2px solid rgb(238, 197, 197);
 }
 /*=====================================
 --------Main container
 =======================================*/
-.main_container{
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    width: 85vw;
-    margin: 0 auto;
+.main_container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  "tabs tabs"
+  "profile repository";
+  width: 85vw;
+  margin: 0 auto;
 }
-.profile_wrapper{
-    display: flex;
-    flex-direction: column;
+.profile_wrapper {
+  display: flex;
+  flex-direction: column;
+  grid-area: profile;
 }
-.profile_wrapper .container{
-    position: absolute;
-    top: 100px;
+.profile_wrapper .container {
+  position: absolute;
+  top: 100px;
+  font-size: 20px;
 }
-.profile_avatar{
-    background-color: black;
-    background-size: contain;
-    border-radius: 50%;
-    height: 300px;
-    width: 300px;
+.profile_avatar {
+  background-color: black;
+  background-size: contain;
+  border-radius: 50%;
+  height: 14em;
+  width: 14em;
 }
-.profile_avatar section{
-    position: absolute;
-    top: 190px;
-    left: 280px;
-    background-color: white;
-    border: 1px solid whitesmoke;
-    border-radius: 30px;
-    padding: 8px;
-    height: fit-content;
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    transition: all .5s ease;
-    cursor: pointer;
+.profile_avatar section {
+  position: absolute;
+  top: 190px;
+  left: 250px;
+  background-color: white;
+  border: 1px solid whitesmoke;
+  border-radius: 30px;
+  padding: 8px;
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  font-size: .7em;
 }
-.profile_avatar section img{
-    align-self: center;
-    height: 17px;
+.profile_avatar section img {
+  align-self: center;
+  height: 17px;
 }
-.profile_avatar section a{
-    align-self: center;
-    margin-left: 5px;
-    display: none;
+.profile_avatar section a {
+  align-self: center;
+  margin-left: 5px;
+  display: none;
 }
-.profile_avatar section:hover a{
-    display: inline;
-    color: rgb(114, 114, 230);
+.profile_avatar section:hover a {
+  display: inline;
+  color: rgb(114, 114, 230);
 }
-.profile_details{
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 10px;
-    border-bottom: 2px solid whitesmoke;
+.profile_details {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  border-bottom: 2px solid whitesmoke;
+  font-size: .7em;
 }
-.profile_details h2{
-    margin-bottom: 0;
+.profile_details h2 {
+  margin-bottom: 0;
 }
-.profile_details button{
-    padding: 5px;
-    border: 1px solid rgb(201, 189, 189);
-    border-radius: 5px;
-    margin-bottom: 10px;
+.profile_details button {
+  padding: 5px;
+  border: 1px solid rgb(201, 189, 189);
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
-.profile_details span{
-    margin-bottom: 5px;
+.profile_details span {
+  margin-bottom: 5px;
 }
-.profile_others p{
-    border-bottom: 2px solid whitesmoke;
-    padding-bottom: 15px;
+.profile_others{
+    font-size: .7em;
+}
+.profile_others p {
+  border-bottom: 2px solid whitesmoke;
+  padding-bottom: 15px;
 }
 /*=====================================
 --------Repository wrapper
 =======================================*/
-.repository_wrapper .search_wrapper{
-    display: flex;
-    flex-direction: row;
-    padding: 25px;
-    border-bottom: 2px solid whitesmoke;
+.repository_wrapper{
+    grid-area: repository;
 }
-.repository_wrapper .search_wrapper section:nth-child(1){
-flex-grow: 1;
+.repository_wrapper .search_wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 25px;
+  border-bottom: 2px solid whitesmoke;
 }
-.repository_wrapper .search_wrapper section:nth-child(2){
-    display: flex;
-    align-self: center;
+.repository_wrapper .search_wrapper section:nth-child(1) {
+  flex-grow: 1;
 }
-.repository_wrapper .search_wrapper section:nth-child(1) input{
-    width: 90%;
-    padding: 8px;
-    border: 1px solid rgb(175, 165, 165);
-    border-radius: 5px;
+.repository_wrapper .search_wrapper section:nth-child(2) {
+  display: flex;
+  align-self: center;
 }
-.repository_wrapper .search_wrapper section:nth-child(2) div{
-    padding: 5px 10px;
-    background: #FAFBFC;
-    border: 1px solid rgb(170, 165, 165);
-    margin: 0px 5px;
-    border-radius: 5px;
-    cursor: pointer;
+.repository_wrapper .search_wrapper section:nth-child(1) input {
+  width: 90%;
+  padding: 8px;
+  border: 1px solid rgb(175, 165, 165);
+  border-radius: 5px;
 }
-.repository_wrapper .search_wrapper section:nth-child(2) div:hover{
-    background: #caccce;
+.repository_wrapper .search_wrapper section:nth-child(2) div {
+  padding: 5px 10px;
+  background: #fafbfc;
+  border: 1px solid rgb(170, 165, 165);
+  margin: 0px 5px;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.repository_wrapper .search_wrapper section:nth-child(2) div:nth-child(3){
-    background-color: #2ea44f;
-    color: white;
+.repository_wrapper .search_wrapper section:nth-child(2) div:hover {
+  background: #caccce;
 }
-.repository_wrapper .search_wrapper section:nth-child(2) div i{
-    color: black;
+.repository_wrapper .search_wrapper section:nth-child(2) div:nth-child(3) {
+  background-color: #2ea44f;
+  color: white;
 }
-.repository_wrapper .repository .content{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    border-bottom: 2px solid whitesmoke;
-    padding-bottom: 20px;
+.repository_wrapper .search_wrapper section:nth-child(2) div i {
+  color: black;
 }
-.repository_wrapper .repository .content section{
-    padding: 10px 20px;
+.repository_wrapper .repository{
+    font-size: 18px;
 }
-.repository_wrapper .repository .content section:nth-child(1){
-    flex-grow: 1;
+.repository_wrapper .repository .content {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-bottom: 2px solid whitesmoke;
+  padding-bottom: .8em;
+  font-size: .7em;
 }
-.repository_wrapper .repository .content section:nth-child(2) span{
-    border: 2px solid whitesmoke;
-    border-radius: 10px;
-    padding: 5px 20px;
+.repository_wrapper .repository .content section {
+  padding: .5px 1em;
 }
-.repository_wrapper .repository .content section span{
-    margin: 0px 10px;
+.repository_wrapper .repository .content section:nth-child(1) {
+  flex-grow: 1;
 }
-.repository_wrapper .repository .content section h2{
-    color: blueviolet;
+.repository_wrapper .repository .content section:nth-child(2) span {
+  border: 2px solid whitesmoke;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+.repository_wrapper .repository .content section span {
+  margin: 0px 10px;
+}
+.repository_wrapper .repository .content section h2 {
+  color: #0366d6;
+  font-weight: 600;
+  cursor: pointer;
+  
+}
+.repository_wrapper .repository .content section:nth-child(1) div {
+  font-weight: 100;
+  font-size: small;
+  padding: 10px 0px;
+}
+.repository_wrapper .repository .content section h2:hover {
+  text-decoration: underline;
+}
+.content i {
+  color: rgb(172, 161, 161);
+}
+/*=====================================
+--------Footer
+=======================================*/
+
+.footer_wrapper {
+  display: flex;
+  padding: 30px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-top: 2px solid whitesmoke;
+}
+
+.footer_wrapper a {
+  color: #0366d6;
+  cursor: pointer;
+}
+.footer_wrapper i {
+  color: rgb(216, 205, 205);
+}
+.footer_wrapper a:hover {
+  text-decoration: underline;
+}
+
+@media(min-width:320px) and (max-width:480px){
+    .header_wrapper{
+        display: grid;
+        padding: 10px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "hamburger github bell"
+        "nav-item nav-item nav-item"
+    }
+    .header_wrapper section:nth-child(2){
+        grid-area: github;
+        justify-self: center;
+    }
+    .hamburger{
+        grid-area: hamburger;
+        display: inline;
+    }
+    .left_nav{
+        grid-area: nav-item;
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+    }
+    .left_nav a{
+        width: 100%;
+        padding: 8px 0px;
+        border-bottom: 1px solid rgb(243, 234, 234);
+        margin: 0 5px;
+    }
+    .left_nav input{
+        width: 98%;
+        margin: 0 5px;
+
+    }
+    .right_nav{
+        display: none !important;
+    }
+    .m-bell{
+        display: inline;
+        grid-area: bell;
+        justify-self: flex-end;
+    }
+    .profile_wrapper .container{
+        position: relative;
+        font-size: 10px;
+        top: 0;
+        display: flex;
+        column-gap: 20px;
+        flex-wrap: wrap;
+    }
+    .profile_wrapper .container .profile_details{
+        width: 100%;
+        padding: 10px;
+        font-size: 15px;
+    }
+    .profile_wrapper .container .profile_details h2,
+    .profile_wrapper .container .profile_details p{
+        display: none;
+    }
+    .profile_wrapper .container .profile_others{
+        display: none;
+    }
+    .main_container{
+        width: 100vw;
+        margin: 0;
+        padding: 5px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "profile"
+        "tabs"
+        "repository"
+        ;
+    }
+    .tabs_wrapper #pop_up{
+        display: none;
+    }
+    .tabs_wrapper section{
+        width: max-content;
+    }
+    .tabs_wrapper {
+        overflow: scroll;
+        font-size: 15px;
+    }
+    .repository_wrapper .search_wrapper{
+        flex-direction: column;
+        row-gap: 20px;
+        padding: 10px;
+    }
+    .repository_wrapper .search_wrapper section:nth-child(2){
+        font-size: 13px;
+    }
+    footer{
+        flex-wrap: wrap;
+        column-gap: 10px;
+        row-gap: 10px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+    .repository_wrapper .repository{
+        font-size: 15px;
+    }
+    .profile_m{
+        display: inline;
+        font-size: 12px;
+    }
+    .profile_avatar{
+        height: 10em;
+        width: 10em;
+    }
+    .profile_avatar section{
+        display: none;
+    }
+    .left_nav .nav_avatar{
+        padding: 0px 10px;
+        background-size: contain;
+    }
+    #j_m{
+        display: inline;
+    }
 }

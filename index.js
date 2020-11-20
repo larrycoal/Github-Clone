@@ -7,17 +7,20 @@ var body = document.querySelector("body");
 var profileAvatar = document.getElementsByClassName("profile_avatar")[0];
 var navAvatar = document.getElementsByClassName("nav_avatar")[0];
 var repository = document.getElementsByClassName("repository")[0];
+var hamburger = document.getElementsByClassName("hamburger")[0]
 var fullName=document.getElementById("full_name")
 var email=document.getElementById("email")
 var website=document.getElementById("website")
+var repoCount = document.getElementById("repo_count")
+var month = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]
 
 //==========================================
 // Github graphql api call
 //============================================
 
-const token = "504f3386d10c741f9930ef3e0304732a5b9be99d";
+
 const oauth = {
-  Authorization: "bearer " + token,
+  Authorization: "bearer " + "fed736ff4489c5cde0327f174934770d13c850be"
 };
 const baseUrl = "https:api.github.com/graphql";
 const query = `{ 
@@ -38,6 +41,8 @@ const query = `{
               name
             }
             updatedAt
+            descriptionHTML
+            forkCount
           }
         }
       }}`;
@@ -77,6 +82,9 @@ navSearch.addEventListener("click", (event) => {
   event.stopPropagation();
   navSearch.classList.add("search_input");
 });
+hamburger.addEventListener("click",()=>{
+  document.getElementsByClassName("left_nav")[0].classList.toggle("visible")
+})
 
 /*
 ============================================
@@ -91,6 +99,7 @@ const getRepositories = ({ user }) => {
   email.innerHTML=user.email
   website.innerHTML=user.websiteUrl
   repository.innerHTML = listRepositories(user.repositories);
+  repoCount.innerHTML=user.repositories.totalCount
 };
 
 const listRepositories = ({ nodes }) => {
@@ -100,6 +109,7 @@ const listRepositories = ({ nodes }) => {
       `<div class="content">
         <section>
             <h2>${data.name}</h2>
+            ${data.descriptionHTML}
             <span>
             <spans style="background-color:${
               data.primaryLanguage === null
@@ -113,11 +123,22 @@ const listRepositories = ({ nodes }) => {
             }
             </span>
             <span>
-            ${lastUpdated(new Date(data.updatedAt))}
+            ${
+                data.forkCount> 0?
+               '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M20 18c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm0-2c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4zm-16 2c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm0-2c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4zm8-14c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm0-2c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4zm3.873 15.655l-2.873-2.404v-3.341c-.326.055-.658.09-1 .09s-.674-.035-1-.09v3.341l-2.873 2.404c.484.46.892 1 1.201 1.598l2.672-2.253 2.672 2.253c.309-.598.717-1.137 1.201-1.598z"/></svg>  '
+               + data.forkCount
+                : " "
+            }
+            </span>
+            <span>
+             updated ${lastUpdated(new Date(data.updatedAt))}
             </span>
         </section>
         <section>
-            <span>Star</span>
+            <span>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            Star
+            </span>
         </section>
     </div>`
   );
@@ -125,34 +146,36 @@ const listRepositories = ({ nodes }) => {
 };
 
 const lastUpdated = (date) => {
-    var seconds = Math.floor((new Date() - date) / 1000);
+    let seconds = Math.floor((new Date() - date) / 1000);
+    let lUpdate = new Date(date)
+    let time = seconds / 31536000;
 
-    var interval = seconds / 31536000;
+    if (time > 1) {
+        return Math.floor(time) + (Math.floor(time) == 1 ? " year ago" : " years ago");
+    }
+    time = seconds / 2592000;
+    if (time > 1) {
 
-    if (interval > 1) {
-        return Math.floor(interval) + (Math.floor(interval) == 1 ? " year ago" : " years ago");
+        return lUpdate.getDate() + " " + month[lUpdate.getMonth()]
     }
-    interval = seconds / 2592000;
-    if (interval > 1) {
-        return Math.floor(interval) + (Math.floor(interval) == 1 ? " month ago" : " months ago");
+    time = seconds / 86400;
+    if (time > 1) {
+        return Math.floor(time) + (Math.floor(time) == 1 ? " day ago" : " days ago");
     }
-    interval = seconds / 86400;
-    if (interval > 1) {
-        return Math.floor(interval) + (Math.floor(interval) == 1 ? " day ago" : " days ago");
+    time = seconds / 3600;
+    if (time > 1) {
+        return Math.floor(time) + (Math.floor(time) == 1 ? " hour ago" : " hours ago");
     }
-    interval = seconds / 3600;
-    if (interval > 1) {
-        return Math.floor(interval) + (Math.floor(interval) == 1 ? " hour ago" : " hours ago");
+    time = seconds / 60;
+    if (time > 1) {
+        return Math.floor(time) + (Math.floor(time) == 1 ? " minute ago" : " minutes ago");
     }
-    interval = seconds / 60;
-    if (interval > 1) {
-        return Math.floor(interval) + (Math.floor(interval) == 1 ? " minute ago" : " minutes ago");
-    }
-    return Math.floor(seconds) + (Math.floor(interval) == 1 ? " second ago" : " seconds ago");
+    return Math.floor(seconds) + (Math.floor(time) == 1 ? " second ago" : " seconds ago");
 }
 
 window.addEventListener("scroll",()=>{
-    console.log(window.scrollY)
+  let pos = document.getElementsByClassName("tabs_wrapper")[0]
+  console.log(pos.scrollTop)
     if(window.scrollY>72){}
     window.scrollY > 72 ?
     document.getElementsByClassName("tabs_wrapper")[0].classList.add("fixed")
