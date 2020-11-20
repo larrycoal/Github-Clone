@@ -51,6 +51,7 @@ const query = `{
       }}`;
 fetch(baseUrl,{
   method: "POST",
+  mode:"cors",
   headers: oauth,
   cache:"no-cache",
   referrer:"no-referrer",
