@@ -20,9 +20,10 @@ var month = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","
 //============================================
 
 
-// const oauth = {
-//   Authorization: "bearer " + "fed736ff4489c5cde0327f174934770d13c850be"
-// };
+
+const oauth = {
+  Authorization: "bearer " + `${window.atob("N2JjNjAwYjBmZmRlNzQ5YWY0ZjE3NzVjMmZlMGM4YzRkYzU0ODAxMw==")}`
+};
 const baseUrl = "https:api.github.com/graphql";
 const query = `{ 
     user(login: "larrycoal") {
