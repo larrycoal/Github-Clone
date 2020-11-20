@@ -22,7 +22,8 @@ var month = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","
 
 
 const oauth = {
-  Authorization: "bearer " + `${token}`
+  "Content-type":"application/json",
+  authorization: "bearer " + `${token}`
 };
 const baseUrl = "https:api.github.com/graphql";
 const query = `{ 
