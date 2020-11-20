@@ -49,14 +49,18 @@ const query = `{
           }
         }
       }}`;
-axios({
-  baseURL: baseUrl,
+fetch(baseUrl,{
   method: "POST",
   headers: oauth,
-  data: JSON.stringify({ query: query }),
+  cache:"no-cache",
+  referrer:"no-referrer",
+  body: JSON.stringify({ query: query }),
 })
   .then((res) => {
-    getRepositories(res.data.data);
+    return res.json()
+  })
+  .then((res)=>{
+    getRepositories(res.data);
   })
   .catch((err) => console.log(err));
 
