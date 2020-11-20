@@ -564,6 +564,10 @@ li a {
     .left_nav .nav_avatar{
         padding: 0px 10px;
         background-size: contain;
+  border-radius: 20px;
+  background-color: whitesmoke;
+  margin: 2px;
+  background-size: contain;
     }
     #j_m{
         display: inline;
