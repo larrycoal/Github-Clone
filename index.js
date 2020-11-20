@@ -177,8 +177,6 @@ const lastUpdated = (date) => {
 }
 
 window.addEventListener("scroll",()=>{
-  let pos = document.getElementsByClassName("tabs_wrapper")[0]
-  console.log(pos.scrollTop)
     if(window.scrollY>72){}
     window.scrollY > 72 ?
     document.getElementsByClassName("tabs_wrapper")[0].classList.add("fixed")
