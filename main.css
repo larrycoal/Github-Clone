@@ -79,6 +79,10 @@ li a {
 #j_m,#status{
     display: none;
 }
+#check{
+    color: black;
+    font-weight: lighter;
+}
 /*=====================================
 --------Nav Bar
 =======================================*/
