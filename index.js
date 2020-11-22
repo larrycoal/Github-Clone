@@ -9,6 +9,8 @@ var navAvatar = document.getElementsByClassName("nav_avatar")[0];
 var navAvatar2 = document.getElementsByClassName("nav_avatar2")[0];
 var repository = document.getElementsByClassName("repository")[0];
 var hamburger = document.getElementsByClassName("hamburger")[0]
+var typeBtn = document.getElementsByClassName("type_button")[0]
+var langBtn =document.getElementsByClassName("language_button")[0]
 var fullName=document.getElementById("full_name")
 var email=document.getElementById("email")
 var website=document.getElementById("website")
@@ -23,7 +25,7 @@ var month = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","
 
 const oauth = {
   "Content-type":"application/json",
-  authorization: "token " + `${token}`
+  authorization: "token " + window.atob("N2JjNjAwYjBmZmRlNzQ5YWY0ZjE3NzVjMmZlMGM4YzRkYzU0ODAxMw==")
 };
 const baseUrl = "https:api.github.com/graphql";
 const query = `{ 
@@ -70,11 +72,15 @@ Dom Manipulation
 
 plusIcon.addEventListener("click", (event) => {
   event.stopPropagation();
+  document.getElementById("type_filter").style.display="none"
+  document.getElementById("language_filter").style.display="none"
   profileDialog.style.display = "none";
   addDialog.style.display = "inline";
 });
 profile.addEventListener("click", (event) => {
   event.stopPropagation();
+  document.getElementById("type_filter").style.display="none"
+  document.getElementById("language_filter").style.display="none"
   addDialog.style.display = "none";
   profileDialog.style.display = "inline";
 });
@@ -82,6 +88,9 @@ body.addEventListener("click", () => {
   navSearch.classList.remove("search_input");
   addDialog.style.display = "none";
   profileDialog.style.display = "none";
+  document.getElementById("type_filter").style.display="none"
+  document.getElementById("language_filter").style.display="none"
+
 });
 navSearch.addEventListener("click", (event) => {
   event.stopPropagation();
@@ -89,6 +98,20 @@ navSearch.addEventListener("click", (event) => {
 });
 hamburger.addEventListener("click",()=>{
   document.getElementsByClassName("left_nav")[0].classList.toggle("visible")
+})
+typeBtn.addEventListener("click",(e)=>{
+  e.stopPropagation()
+  addDialog.style.display = "none";
+  profileDialog.style.display = "none";
+  document.getElementById("language_filter").style.display="none"
+  document.getElementById("type_filter").style.display="inline"
+})
+langBtn.addEventListener("click",(e)=>{
+  e.stopPropagation()
+  addDialog.style.display = "none";
+  profileDialog.style.display = "none";
+  document.getElementById("type_filter").style.display="none"
+  document.getElementById("language_filter").style.display="inline"
 })
 
 /*

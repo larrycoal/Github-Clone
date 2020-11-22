@@ -18,7 +18,7 @@ li {
   padding: 7px 5px;
   list-style: none;
 }
-li:hover {
+.header_wrapper li:hover {
   background-color: rgb(46, 54, 179);
 }
 a {
@@ -76,7 +76,7 @@ li a {
 .visible{
     display: flex !important;
 }
-#j_m{
+#j_m,#status{
     display: none;
 }
 /*=====================================
@@ -348,8 +348,9 @@ li a {
 .repository_wrapper .search_wrapper {
   display: flex;
   flex-direction: row;
-  padding: 25px;
+  padding: 20px;
   border-bottom: 2px solid whitesmoke;
+  font-size: 20px;
 }
 .repository_wrapper .search_wrapper section:nth-child(1) {
   flex-grow: 1;
@@ -357,6 +358,7 @@ li a {
 .repository_wrapper .search_wrapper section:nth-child(2) {
   display: flex;
   align-self: center;
+  font-size: .7em;
 }
 .repository_wrapper .search_wrapper section:nth-child(1) input {
   width: 90%;
@@ -365,10 +367,10 @@ li a {
   border-radius: 5px;
 }
 .repository_wrapper .search_wrapper section:nth-child(2) div {
-  padding: 5px 10px;
+  padding: .25em .5em;
   background: #fafbfc;
   border: 1px solid rgb(170, 165, 165);
-  margin: 0px 5px;
+  margin: 0px .25em;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -424,6 +426,52 @@ li a {
 .content i {
   color: rgb(172, 161, 161);
 }
+.repository_wrapper .search_filter{
+    width: fit-content;
+    margin: 0;
+    background-color: white;
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px 0px;
+    
+}
+.search_filter li{
+    width: 250px;
+    margin: 0px 0px;
+    border-bottom: 2px solid whitesmoke;
+    font-size: smaller;
+    font-weight: 500;
+}
+.search_filter li:hover{
+    background-color: rgb(247, 240, 240);
+}
+.search_filter ul li span{
+    margin: 0px 15px;
+}
+.search_filter span:nth-child(1){
+    margin: 10px;
+    font-size: small;
+    font-weight: 600;
+}
+.search_filter span:nth-child(2){
+    float: right;
+    margin: 0px 10px;
+    cursor: pointer;
+    font-size: small;
+    font-weight: 600;
+    color: rgb(158 144 144);
+}
+#type_filter{
+    right: 360px;
+    top: 190px;
+    display: none;
+}
+#language_filter{
+    right: 220px;
+    top: 190px;
+    display: none;
+}
 /*=====================================
 --------Footer
 =======================================*/
@@ -446,8 +494,19 @@ li a {
 .footer_wrapper a:hover {
   text-decoration: underline;
 }
+@media(min-width:580px) and (max-width:1080px){
+    .profile_wrapper .container{
+        position: relative;
+    }
+    .tabs_wrapper{
+        font-size: 15px;
+    }
+    .repository_wrapper .search_wrapper {
+        font-size: 15px;
+    }
+}
 
-@media(min-width:320px) and (max-width:480px){
+@media(min-width:320px) and (max-width:600px){
     .header_wrapper{
         display: grid;
         padding: 10px;
@@ -571,5 +630,19 @@ li a {
     }
     #j_m{
         display: inline;
+    }
+    .search_filter{
+        top: 50% !important;
+        right: 80px !important;
+    }
+    #status{
+        border: 1px solid rgb(224, 215, 215);
+        padding: 10px;
+        border-radius: 5px;
+        font-size: smaller;
+        display: inline;
+    }
+    .profile_details button{
+        padding: 10px;
     }
 }

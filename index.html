@@ -126,6 +126,7 @@
             <div class="profile_details">
                 <h2 id="full_name"></h2>
                 <p>larrycoal</p>
+                <span id="status"><img height="15px" width="15px"src="./resources/icons/happy.png"/> Set status</span>
                 <button>Edit Profile</button>
                 <span></span>
                 <span><a id="email">larry_coal@outlook.com</a></span>
@@ -145,12 +146,12 @@
                    <input type="text" placeholder="Find a repository"/>
                </section>
                <section>
-                   <div>
+                   <div class="type_button">
                        <span>Type:</span>
                        <span>All</span>
                        <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                    </div>
-                   <div>
+                   <div class="language_button">
                     <span>Language:</span>
                     <span>All</span>
                     <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
@@ -160,6 +161,29 @@
                     <span>New</span>
                    </div>
                </section>
+            </div>
+            <div class="search_filter" id="type_filter">
+                <span>Select type</span><span>X</span>
+                <ul>
+                    <li><span>X</span>All</li>
+                    <li><span></span>Public</li>
+                    <li><span></span>Private</li>
+                    <li><span></span>Sources</li>
+                    <li><span></span>Forks</li>
+                    <li><span></span>Archived</li>
+                    <li><span></span>Mirrors</li>
+                </ul>
+            </div>
+            <div class="search_filter" id="language_filter">
+                <span>Select language</span><span>X</span>
+                <ul>
+                    <li><span>X</span>All</li>
+                    <li><span></span>CSS</li>
+                    <li><span></span>Javascript</li>
+                    <li><span></span>HTML</li>
+                    <li><span></span>PHP</li>
+                    <li><span></span>Dart</li>
+                </ul>
             </div>
             <div class="repository">  
             </div>
