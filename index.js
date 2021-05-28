@@ -1,4 +1,5 @@
 var addDialog = document.getElementsByClassName("add_dialog")[0];
+var profilePage = document.getElementsByClassName("profile_page")[0]
 var profileDialog = document.getElementsByClassName("profile_dialog")[0];
 var navSearch = document.getElementById("search_input");
 var profile = document.getElementsByClassName("profile_dropdown")[0];
@@ -11,64 +12,25 @@ var repository = document.getElementsByClassName("repository")[0];
 var hamburger = document.getElementsByClassName("hamburger")[0]
 var typeBtn = document.getElementsByClassName("type_button")[0]
 var langBtn =document.getElementsByClassName("language_button")[0]
-var fullName=document.getElementById("full_name")
+var fullName=document.getElementsByClassName("full_name")[0]
 var email=document.getElementById("email")
 var website=document.getElementById("website")
 var repoCount = document.getElementById("repo_count")
+var username = document.getElementsByClassName("username")[0]
+var usernameone = document.getElementsByClassName("usernameone")[0]
+var usernametwo = document.getElementsByClassName("usernametwo")[0]
+var count = document.getElementById("count")
 var month = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]
-
-//==========================================
-// Github graphql api call
-//============================================
-
-
-
-const oauth = {
-  "Content-type":"application/json",
-  authorization: "token " + window.atob("N2JjNjAwYjBmZmRlNzQ5YWY0ZjE3NzVjMmZlMGM4YzRkYzU0ODAxMw==")
-};
-const baseUrl = "https:api.github.com/graphql";
-const query = `{ 
-    user(login: "larrycoal") {
-        avatarUrl
-        bio
-        email
-        websiteUrl
-        name
-        url
-        repositories(first: 20, orderBy: {direction: DESC, field: PUSHED_AT}) {
-          totalCount
-          nodes {
-            name
-            isPrivate
-            primaryLanguage {
-              color
-              name
-            }
-            updatedAt
-            descriptionHTML
-            forkCount
-          }
-        }
-      }}`;
-fetch("https://api.github.com/graphql",{
-  method: "POST",
-  headers: oauth,
-  body: JSON.stringify({ query: query }),
+window.addEventListener('load',()=>{
+  let users =JSON.parse(localStorage.getItem('users'))
+  getRepositories(users)
 })
-  .then((res) => {
-    return res.json()
-  })
-  .then((res)=>{
-    getRepositories(res.data);
-  })
-  .catch((err) => console.log(err));
-
 /*
 ============================================
 Dom Manipulation
 ============================================
 */
+
 
 plusIcon.addEventListener("click", (event) => {
   event.stopPropagation();
@@ -119,18 +81,23 @@ langBtn.addEventListener("click",(e)=>{
 Helper Functions
 ============================================
 */
+
 const getRepositories = ({ user }) => {
+  console.log(user)
   profileAvatar.style.backgroundImage = `url(${user.avatarUrl})`;
   navAvatar.style.backgroundImage = `url(${user.avatarUrl})`;
   navAvatar2.style.backgroundImage = `url(${user.avatarUrl})`;
   document.getElementById("pop_avatar").style.backgroundImage = `url(${user.avatarUrl})`;
+  username.innerHTML=user.login
+  usernameone.innerHTML=user.login
+  usernametwo.innerHTML=user.login
   fullName.innerHTML=user.name
   email.innerHTML=user.email
   website.innerHTML=user.websiteUrl
   repository.innerHTML = listRepositories(user.repositories);
   repoCount.innerHTML=user.repositories.totalCount
+  count.innerHTML=user.repositories.totalCount
 };
-
 const listRepositories = ({ nodes }) => {
   let template = "<div>loading</div>";
   template = nodes.map(
@@ -212,3 +179,5 @@ window.addEventListener("scroll",()=>{
    document.getElementById("pop_up").style.visibility="visible"
     : document.getElementById("pop_up").style.visibility="hidden"
 })
+
+

@@ -1,9 +1,7 @@
 html,
-body {
-  height: 100vh;
-  width: 100vw;
-  background-color: white;
+body,h2 {
   margin: 0px;
+  padding: 0px;
   font-family: "Open Sans", sans-serif;
 }
 i {
@@ -83,6 +81,28 @@ li a {
     color: black;
     font-weight: lighter;
 }
+.error{
+  font-size: small;
+  color: red;
+  text-align: center;
+}
+.loader{
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 3px solid transparent;
+  border-top-color: #a8dadc;
+  animation: spin 1s linear infinite;
+  display: none;
+}
+@keyframes spin{
+  0%{
+    transform:rotate(0deg)
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
 /*=====================================
 --------Nav Bar
 =======================================*/
@@ -91,7 +111,7 @@ li a {
   padding: 14px 30px;
   display: flex;
   flex-direction: row;
-  font-size: 23px;
+  font-size: 20px;
 }
  .left_nav {
   display: flex;
@@ -216,7 +236,51 @@ li a {
   padding: 15px 0px;
   border-bottom: 2px solid whitesmoke;
 }
-
+/*=====================================
+--------Search Page
+=======================================*/
+.search_body{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background: url(./resources/gitbck.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.search_input{
+    display: flex;
+    flex-direction: column;
+    background: none;
+}
+.icon{
+    flex-grow: 1;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background: #24292e;
+}
+.icon i{
+  color: wheat;
+    font-size: 200px;
+}
+.search_input form{
+  display: flex;
+}
+.search_input input{
+  flex-grow: 1;
+    padding: 10px;
+    outline: none;
+    border-top: none;
+    border-right: none;
+}
+.search_input button i {
+  font-size: larger;
+  color: #24292e;
+}
+.search_input div:nth-child(1){
+  font-weight: 800;
+}
 /*=====================================
 --------Tabs Wrapper
 =======================================*/
@@ -268,7 +332,7 @@ li a {
   grid-template-areas: 
   "tabs tabs"
   "profile repository";
-  width: 85vw;
+  width: 90vw;
   margin: 0 auto;
 }
 .profile_wrapper {
@@ -277,9 +341,10 @@ li a {
   grid-area: profile;
 }
 .profile_wrapper .container {
-  position: absolute;
-  top: 100px;
+  position: relative;
+  top: -28px;
   font-size: 20px;
+  padding: 0px 7px;
 }
 .profile_avatar {
   background-color: black;
@@ -396,7 +461,7 @@ li a {
   width: 100%;
   align-items: center;
   border-bottom: 2px solid whitesmoke;
-  padding-bottom: .8em;
+  padding: 2em 0;
   font-size: .7em;
 }
 .repository_wrapper .repository .content section {
@@ -411,7 +476,7 @@ li a {
   padding: 5px 10px;
 }
 .repository_wrapper .repository .content section span {
-  margin: 0px 10px;
+  margin-right:10px;
 }
 .repository_wrapper .repository .content section h2 {
   color: #0366d6;
@@ -467,14 +532,23 @@ li a {
     color: rgb(158 144 144);
 }
 #type_filter{
-    right: 360px;
+    right: 260px;
     top: 190px;
     display: none;
 }
 #language_filter{
-    right: 220px;
+    right: 150px;
     top: 190px;
     display: none;
+}
+.repo_count{
+  font-size: small;
+  padding: 10px 0px;
+  border-bottom: 2px solid whitesmoke;
+  width: fit-content;
+}
+.repo_count span{
+  font-weight: 800;
 }
 /*=====================================
 --------Footer
@@ -500,7 +574,7 @@ li a {
 }
 @media(min-width:580px) and (max-width:1080px){
     .profile_wrapper .container{
-        position: relative;
+        font-size: 15px;
     }
     .tabs_wrapper{
         font-size: 15px;
@@ -509,8 +583,13 @@ li a {
         font-size: 15px;
     }
 }
-
-@media(min-width:320px) and (max-width:600px){
+@media(max-width:1080px){
+  .profile_avatar section {
+    top: 150px;
+    left: 180px;
+  }
+}
+@media(min-width:320px) and (max-width:800px){
     .header_wrapper{
         display: grid;
         padding: 10px;
